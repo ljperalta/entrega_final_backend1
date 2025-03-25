@@ -73,7 +73,7 @@ const deleteProdbyId = async (req, res) => {
     try {
         const {idC, idP} = req.params;
         const result = await deleteProductbyId(idC, idP);
-        res.status(201).json({ message: "Carrito limpiado con exito", data : result});
+        res.status(201).json({ message: "Producto eliminado con exito", data : result});
     } catch (error) {
         console.error("Error al limpiar el carrito:", error);
         res.status(500).json({ message: "Error en el servidor" });
@@ -95,13 +95,13 @@ const updateAllProdbyId = async (req, res) => {
 
 const updateProdbyId = async (req, res) => {
     try {
-        const id = req.params;
+        const {idC, idP} = req.params;
         const data = req.body;
-        console.log(id , data , "test")
-        await updateProductsbyId(id, data);
-        res.status(201).json({ message: "Carrito limpiado con exito"});
+        console.log(idC , idP, data , "test")
+        await updateProductsbyId(idC, idP, data);
+        res.status(201).json({ message: "Carrito Actualizado con exito"});
     } catch (error) {
-        console.error("Error al limpiar el carrito:", error);
+        console.error("Error al actualizar el carrito:", error);
         res.status(500).json({ message: "Error en el servidor" });
     }
 };

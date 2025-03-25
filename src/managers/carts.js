@@ -46,7 +46,7 @@ class CartManager {
         const updatedCart = await Cart.findByIdAndUpdate(
             idCart,
             { $pull: { products: { product: idProduct } } },
-            { new: true } // Retorna el documento actualizado
+            { new: true }
           );
           if (!updatedCart) {
             throw new Error("Carrito no encontrado");
@@ -65,14 +65,24 @@ class CartManager {
         return result;
     };
 
-    updateProductsbyId = async (id, data) => {
+    updateProductsbyId = async (idC, idP, data) => {
+        console.log(idC , idP, data , "test222")
+        const cart = await Cart.findById(idC).populate("products.product")
+        //console.log(cart)
+        const productToUpdate = cart.products.find(item => item._id.toString() === idP);
+        //console.log(productToUpdate)
 
-        const result = await Cart.updateOne(
-            { _id: id.id },
-            { $set: { products: [] } }
-        );
-        
-        return result;
+        Object.keys(data).forEach(key => {
+            console.log(key, productToUpdate.product[key], data[key])
+            if (productToUpdate.product[key] !== undefined) {
+              productToUpdate.product[key] = data[key];
+              console.log(productToUpdate.product[key],"=", data[key])
+            }
+          });
+      
+        await cart.save();      
+        console.log(productToUpdate)
+        return cart;
     };
 
     async leerJSON() {
@@ -96,5 +106,5 @@ module.exports = {
     deleteAllProductsbyId: async (id) => await cartManager.deleteAllProductsbyId(id),
     deleteProductbyId: async (idCart, idProduct) => await cartManager.deleteProductbyId(idCart, idProduct),
     updateAllProductsbyId: async (id, data) => await cartManager.updateAllProductsbyId(id, data),
-    updateProductsbyId: async (id, data) => await cartManager.updateProductsbyId(id, data),
+    updateProductsbyId: async (idC, idP, data) => await cartManager.updateProductsbyId(idC, idP, data),
 };
