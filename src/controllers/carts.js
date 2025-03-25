@@ -84,9 +84,9 @@ const updateAllProdbyId = async (req, res) => {
     try {
         const id = req.params;
         const data = req.body;
-        console.log(id , data , "test")
-        await updateAllProductsbyId(id, data);
-        res.status(201).json({ message: "Carrito limpiado con exito"});
+
+        const result = await updateAllProductsbyId(id, data);
+        res.status(201).json({ message: "Carrito Actualizado con exito", data: result});
     } catch (error) {
         console.error("Error al limpiar el carrito:", error);
         res.status(500).json({ message: "Error en el servidor" });

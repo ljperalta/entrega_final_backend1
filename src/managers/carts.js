@@ -59,7 +59,7 @@ class CartManager {
 
         const result = await Cart.updateOne(
             { _id: id.id },
-            { $set: { products: [] } }
+            { $set: { products: data.products } }
         );
         
         return result;

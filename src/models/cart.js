@@ -7,8 +7,7 @@ const cartSchema = new mongoose.Schema(
       required: [true, "El Titulo es obligatorio"]
     },
     products: [
-              { product: { type: mongoose.Schema.Types.ObjectId, ref: "productos"},
-                quantity: { type: Number, default: 1 } }
+              { product: { type: mongoose.Schema.Types.ObjectId, ref: "productos"} }
               ]
   }
 );
