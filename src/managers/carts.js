@@ -5,8 +5,8 @@ class CartManager {
     getCart = async () => {      return await this.leerJSON()    }
 
     getCartById = async (id) => {
-        const carts = await this.leerJSON()
-        return carts.find(carrito => carrito._id.toString() === id) || null;
+        const carts = await Cart.findById(id).populate("products.product")
+        return carts;
     }
 
     addCart = async (data) => {

@@ -1,15 +1,15 @@
 <h1>Lista de Productos</h1>
-{{#if products.length}}
+{{#if carts.products.length}}
     <div class="products-container">
-        {{#each products}}
+        {{#each carts.products}}
             <div class="product-card">
-                <img src="{{thumbnails}}" alt="{{title}}" class="product-image">
-                <h2>{{title}}</h2>
-                <p><strong>Descripción:</strong> {{description}}</p>
-                <p><strong>Código:</strong> {{code}}</p>
-                <p><strong>Precio:</strong> ${{precio}}</p>
-                <p><strong>Stock:</strong> {{stock}} unidades</p>
-                <p><strong>Estado:</strong> {{#if status}}Disponible{{else}}Agotado{{/if}}</p>
+                <img src="{{product.thumbnails}}" alt="{{product.title}}" class="product-image">
+                <h2>{{product.title}}</h2>
+                <p><strong>Descripción:</strong> {{product.description}}</p>
+                <p><strong>Código:</strong> {{product.code}}</p>
+                <p><strong>Precio:</strong> ${{product.precio}}</p>
+                <p><strong>Stock:</strong> {{product.stock}} unidades</p>
+                <p><strong>Estado:</strong> {{#if product.status}}Disponible{{else}}Agotado{{/if}}</p>
             </div>
         {{/each}}
     </div>
