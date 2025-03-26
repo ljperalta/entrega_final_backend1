@@ -8,6 +8,6 @@ const vistaCarts = require("./views.carts");
 router.use("/api/products/", products);
 router.use("/api/carts/", carts);
 router.use("/products/", vistaProducts);
-router.use("/carts/:id", vistaCarts);
+router.use("/carts/", vistaCarts);
 
 module.exports = router;

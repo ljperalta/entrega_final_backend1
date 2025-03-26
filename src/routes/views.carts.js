@@ -1,11 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const { getCartsByIdVista } = require('../controllers/carts');
+const { getCartById } = require('../managers/carts');
 
-router.get('/', async (req, res) => {
-    console.log(req.params)
+router.get('/:id', async (req, res) => {
     try {
-        const carts = await getCartsByIdVista(); 
+        const carts = await getCartById(req.params.id); 
         
         res.render("view_carts", {layout: "carts", carts });
     } catch (error) {
