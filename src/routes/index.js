@@ -1,11 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const products      = require("./products");
-const vistaProducts = require("./views.router");
+const products = require("./products");
 const carts = require("./carts");
+const vistaProducts = require("./views.router");
+const vistaCarts = require("./views.carts");
 
 router.use("/api/products/", products);
-router.use("/products/", vistaProducts);
 router.use("/api/carts/", carts);
+router.use("/products/", vistaProducts);
+router.use("/carts/:id", vistaCarts);
 
 module.exports = router;

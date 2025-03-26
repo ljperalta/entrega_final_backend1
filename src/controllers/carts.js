@@ -30,6 +30,18 @@ const getCartsById = async (req, res) => {
     }
 };
 
+const getCartsByIdVista = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const product = await getCartById(id);
+
+        return (product)? product: []
+
+    } catch (error) {
+        res.status(500).json({ message: "Error al buscar el carrito", error });
+    }
+};
+
 const addCarts = async (req, res) => {
     try {
         const data = req.body;
