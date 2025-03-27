@@ -1,6 +1,41 @@
 
     <h1>Lista de Productos</h1>
-    {{#if products.length}}
+    <table>
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Género</th>
+            <th>Calificación</th>
+            <th>Grupo</th>
+        </tr>
+        </thead>
+        <tbody>
+            {{#each products}}
+                <tr>
+                <td>{{title}}</td>
+                <td>{{description}}</td>
+                <td>{{code}}</td>
+                <td>{{price}}</td>
+                <td>{{stock}}</td>
+                <td>{{#if status}}Disponible{{else}}Agotado{{/if}}</td>
+                <td><img src="{{thumbnails}}" alt="{{title}}" class="product-image"></td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        {{#if hasPrevPage}}
+        <a href="/prod_paginate?page={{prevPage}}&limit=10">Anterior</a>
+        {{/if}}
+        <span>Página {{currentPage}} de {{totalPages}}</span>
+        {{#if hasNextPage}}
+        <a href="/prod_paginate?page={{nextPage}}&limit=10">Siguiente</a>
+        {{/if}}
+    </div>
+    {{!-- {{#if products.length}}
         <div class="products-container">
             {{#each products}}
                 <div class="product-card">
@@ -16,4 +51,4 @@
         </div>
     {{else}}
         <p>No hay productos disponibles.</p>
-    {{/if}}
+    {{/if}} --}}
