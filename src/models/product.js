@@ -42,7 +42,7 @@ productSchema.index({ title: 1 });
 productSchema.index({ description: 1 });
 productSchema.index({ code: 1 });
 
-studentSchema.plugin(mongoosePaginate)
+productSchema.plugin(mongoosePaginate)
 
 const Product = mongoose.model("productos", productSchema);
 module.exports = Product;
