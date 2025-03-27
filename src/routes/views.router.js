@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
         }
     
         const result = await Product.paginate(filter, options);
-        console.log(result)
+        
         res.render("view_products", {
             layout: "products", // layout personalizado
             status: result.docs.length > 0? 1 : 0,
