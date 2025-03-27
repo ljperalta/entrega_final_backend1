@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const { getProdsVista } = require('../controllers/products');
+const { getAllProducts } = require('../managers/products');
 
 router.get('/', async (req, res) => {
     try {
-        const products = await getProdsVista(); 
+        const products = await getAllProducts(); 
         
         res.render("view_products", {layout: "products", products });
     } catch (error) {

@@ -14,15 +14,6 @@ const getProds = async (req, res) => {
     }
 };
 
-const getProdsVista = async () => {
-    try {
-        const p = await getAllProducts();
-        return (p.length > 0 )? p : [];
-    } catch (error) {
-        return [];
-    }
-};
-
 const getProdById = async (req, res) => {
     try {
         const id = req.params.id;
@@ -86,4 +77,4 @@ const deleteProdById = async (req, res) => {
     }
 };
 
-module.exports = { getProds, getProdById, addNewProduct, updateProdById, deleteProdById, getProdsVista };
+module.exports = { getProds, getProdById, addNewProduct, updateProdById, deleteProdById };
