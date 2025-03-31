@@ -109,3 +109,51 @@ button:hover {
 .add-to-cart:hover {
   background-color: #218838;
 }
+/*-----------------real time------------------*/
+/* Estilos del formulario */
+/* Contenedor del formulario con Grid */
+.product-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+  gap: 10px;
+}
+
+/* Inputs con ancho completo dentro de su celda */
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Estilos específicos para el checkbox */
+.status-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Botón de submit ocupa todo el ancho en la última fila */
+.btn-submit {
+  grid-column: span 2; /* Ocupa las dos columnas */
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.btn-submit:hover {
+  background-color: #0056b3;
+}

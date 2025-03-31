@@ -1,8 +1,9 @@
 <h1>Lista de Productos</h1>
 {{#if carts.products.length}}
-    <div class="products-container">
+    <div>
         {{#each carts.products}}
-            <div class="product-card">
+            {{!-- <div class="product-card"> --}}
+            <div>
                 <img src="{{product.thumbnails}}" alt="{{product.title}}" class="product-image">
                 <h2>{{product.title}}</h2>
                 <p><strong>Descripción:</strong> {{product.description}}</p>
